@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAJ SISOUUDA | Comp Sci/Keyboard Warrior</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+<!-- Hero Section -->
+<section id="hero">
+  <div class="scanlines"></div> <!-- Retro overlay effect -->
+  <div class="hero-content">
+    <!-- ASCII Art -->
+    <div class="ascii-art">
+      <pre>
+            .:'/*/'`:,·:~·–:.,                        ,.-:~:-.                  °              _     
+   /::/:/:::/:::;::::::/`':.,'                /':::::::::'`,                         .´/: : :/:`; 
+ /·*'`·´¯'`^·-~·:–-'::;:::'`;             /;:-·~·-:;':::',                       /:/:_: /:::'i 
+ '\                       '`;::'i‘         ,'´          '`:;::`,                    /·´     '`;:::;'
+   '`;        ,– .,        'i:'/         /                `;::\                   i         'i::; 
+     i       i':/:::';       ;/'        ,'                   '`,::;                 ';        'i::;°
+     i       i/:·'´       ,:''         i'       ,';´'`;         '\:::', ‘    ,. -.,   ';        ';::; 
+     '; '    ,:,     ~;'´:::'`:,    ,'        ;' /´:`';         ';:::'i‘   /:::::/`:.,;       ';::;' 
+     'i      i:/\       `;::::/:'`;' ;        ;/:;::;:';         ',:::;  /;:-:;/:::::'|       ;:/`;‘
+      ;     ;/   \       '`:/::::/''i        '´        `'         'i::'/,´      `·:;:·'       ;/'::/ 
+      ';   ,'       \         '`;/' ¦       '/`' *^~-·'´\         ';'/'‚';                     `;/'  
+       `'*´          '`~·-·^'´    '`., .·´              `·.,_,.·´  ‚  '`·,           _,.-·'´ °  
+                                                                           '`'*^*'´¯    ”                                                                                                             
+      
+                                                                          </pre>
+    <div class="ascii-art">
+      <pre>                                                                                  
+      </pre>
+    <!-- Animated Terminal Text -->
+    <div class="terminal">
+      <span class="prompt">></span>
+      <span class="typing-text" id="typing-text"></span>
+      <span class="cursor">_</span>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="#projects" class="cta-button">
+      <span class="glow-text">Explore My Work</span>
+      <span class="arrow">↓</span>
+    </a>
+  </div>
+</section>
+
+  <!-- Placeholder Sections (We'll fill these next) -->
+  <!-- About Section -->
+<section id="about">
+    <div class="about-container">
+      <!-- Pixel Art Avatar -->
+      <img src="assets/avatar.png" alt="8-bit avatar" class="pixel-avatar" height="150" width="150">
+      
+      <!-- Bio Text -->
+      <div class="bio">
+        <h2>>_ About Me</h2>
+        <div class="divider"></div>
+        <p>
+          Computer Scientist with a passion for algorithms, clean code, 
+          and building systems that scale. Currently hacking on 
+          <span class="highlight">distributed systems</span> and 
+          <span class="highlight">compiler design</span>.
+        </p>
+        
+        <!-- Fun Fact Terminal -->
+        <div class="fun-fact">
+          <span class="command">$ fun_fact.sh</span>
+          <p>> "I once optimized a loop so hard it became O(1)."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Skills Section -->
+<section id="skills">
+    <div class="skills-container">
+      <h2>>_ Skills</h2>
+      <div class="divider"></div>
+      
+      <!-- Skill Bars -->
+      <div class="skill">
+        <label>Python <span class="skill-detail">(4 years)</span></label>
+        <div class="skill-bar">
+          <div class="skill-progress" data-level="90%"></div>
+        </div>
+      </div>
+      
+      <div class="skill">
+        <label>JavaScript <span class="skill-detail">(3 years)</span></label>
+        <div class="skill-bar">
+          <div class="skill-progress" data-level="80%"></div>
+        </div>
+      </div>
+      
+      <div class="skill">
+        <label>Rust <span class="skill-detail">(1 year)</span></label>
+        <div class="skill-bar">
+          <div class="skill-progress" data-level="60%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="projects-container">
+    <h2>>_ Projects</h2>
+    <div class="divider"></div>
+    
+    <div class="project-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-front">
+          <span class="project-badge">GAME DEV</span>
+          <h3 class="project-title">2048 Game</h3>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Pygame</span>
+            <span class="tech-pill">Algorithm</span>
+          </div>
+        </div>
+        <div class="project-back">
+          <p class="project-description">
+            Classic 2048 puzzle game rebuilt with Python. Features smooth tile animations, 
+            score tracking, and mobile-responsive design through Pygame's scaling system.
+          </p>
+          <a href="https://github.com/codedecoyz/2048_python_pygame" target="_blank" class="github-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="margin-right: 5px;">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+      
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-front">
+          <span class="project-badge">WEB APP</span>
+          <h3 class="project-title">TaskMaster Todo</h3>
+          <div class="project-tech">
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-back">
+          <p class="project-description">
+            Minimalist task manager with purple-white aesthetic. Features local storage, 
+            drag-reordering, and responsive design. Perfect for daily productivity.
+          </p>
+          <a href="https://github.com/codedecoyz/taskmaster_todo_app" target="_blank" class="github-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="margin-right: 5px;">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Contact Section -->
+<section id="contact">
+    <div class="contact-container">
+      <h2>>_ Contact</h2>
+      <div class="divider"></div>
+      
+      <form class="terminal-form">
+        <div class="form-line">
+          <span class="prompt">$</span>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-line">
+          <span class="prompt">$</span>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-line">
+          <span class="prompt">$</span>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">
+          <span class="command">./send_message.sh</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script0.js"></script>
+</body>
+</html>

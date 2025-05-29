@@ -1,0 +1,537 @@
+/* Color Variables */
+:root {
+    --cream: #FFFCF2;
+    --warm-gray: #CCC5B9;
+    --charcoal: #403D39;
+    --dark: #252422;
+    --accent: #EB5E28;
+  }
+  
+  /* Base Styles */
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding-top: 70px; /* Offset for fixed navbar */
+  }
+  
+  section {
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--dark);
+    padding: 1.5rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px dashed var(--accent);
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.2rem 0;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--accent);
+  }
+  
+  /* Retro Underline Hover Effect */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Active Section Highlight */
+  .nav-link.active {
+    color: var(--accent);
+  }
+
+  /* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--charcoal) 100%);
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .ascii-art {
+    color: var(--accent);
+    font-size: 0.6rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    color: var(--cream);
+  }
+  
+  .tagline {
+    font-family: 'Courier New', monospace;
+    color: var(--warm-gray);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Retro CTA Button */
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: var(--accent);
+    border: 2px dashed var(--accent);
+    font-family: 'Courier New', monospace;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: var(--accent);
+    color: var(--dark);
+    border-style: solid;
+  }
+
+  /* Blinking Cursor */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2rem;
+    background: var(--accent);
+    margin-left: 0.2rem;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  /* Responsive ASCII Art */
+  @media (max-width: 768px) {
+    .ascii-art {
+      font-size: 0.4rem; /* Smaller on mobile */
+    }
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Button Glow Effect */
+  .cta-button:hover {
+    box-shadow: 0 0 15px var(--accent);
+  }
+
+  /* Skills Section */
+#skills {
+    background: var(--dark);
+    padding: 4rem 2rem;
+  }
+  
+  .skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .skill {
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill label {
+    display: block;
+    font-family: 'Courier New', monospace;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-detail {
+    color: var(--warm-gray);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .skill:hover .skill-detail {
+    opacity: 1;
+  }
+  
+  .skill-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--charcoal);
+    border: 1px dashed var(--warm-gray);
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    width: 0; /* JS will animate this */
+    background: var(--accent);
+    transition: width 1.5s ease-out;
+  }
+/* ======================
+   ENHANCED PROJECT CARDS
+   ====================== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.project-card {
+  aspect-ratio: 1/1.2; /* Slightly taller for better content flow */
+  perspective: 1200px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Card Faces */
+.project-front,
+.project-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 1.8rem;
+  transition: transform 0.8s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-front {
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark) 100%);
+  border: 1px solid var(--accent);
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.project-back {
+  background: linear-gradient(135deg, var(--dark) 0%, #1e1c1a 100%);
+  border: 1px dashed var(--accent);
+  transform: rotateY(180deg);
+  z-index: 1;
+  justify-content: space-between;
+}
+
+/* Card Content Styling */
+.project-badge {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: var(--cream);
+  line-height: 1.4;
+  position: relative;
+}
+
+.project-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-pill {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(235, 94, 40, 0.1);
+  color: var(--warm-gray);
+  border-radius: 20px;
+  border: 1px solid rgba(235, 94, 40, 0.3);
+}
+
+.project-description {
+  color: var(--warm-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  flex-grow: 1;
+}
+
+/* Hover States */
+.project-card:hover .project-front {
+  transform: rotateY(180deg);
+  box-shadow: 0 5px 15px rgba(235, 94, 40, 0.2);
+}
+
+.project-card:hover .project-back {
+  transform: rotateY(0deg);
+  box-shadow: 0 15px 35px rgba(235, 94, 40, 0.15);
+}
+
+/* GitHub Button */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.github-link:hover {
+  background: var(--accent);
+  color: var(--dark);
+  transform: translateX(5px);
+}
+
+.github-link::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.github-link:hover::after {
+  transform: translateX(3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 2rem auto;
+  }
+  
+  .project-card {
+    aspect-ratio: 1/1.1;
+  }
+}
+
+  /* Contact Section */
+#contact {
+    background: var(--dark);
+    padding: 4rem 2rem;
+  }
+  
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .terminal-form {
+    font-family: 'Courier New', monospace;
+  }
+  
+  .form-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .prompt {
+    color: var(--accent);
+  }
+  
+  .terminal-form label {
+    color: var(--cream);
+    min-width: 70px;
+  }
+  
+  .terminal-form input,
+  .terminal-form textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--warm-gray);
+    color: var(--cream);
+    padding: 0.3rem;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .terminal-form textarea {
+    resize: vertical;
+  }
+  
+  .submit-button {
+    background: transparent;
+    border: 2px dashed var(--accent);
+    color: var(--accent);
+    padding: 0.8rem 1.5rem;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: var(--accent);
+    color: var(--dark);
+    border-style: solid;
+  }
+  
+  .command::after {
+    content: '_';
+    animation: blink 1s infinite;
+  }
+
+  /* Hero Section */
+#hero {
+  height: 100vh;
+  background: linear-gradient(135deg, var(--dark) 0%, #1a1917 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Retro Scanlines Effect */
+.scanlines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+/* ASCII Art */
+.ascii-art {
+  color: var(--accent); /* Use your orange (#EB5E28) */
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem; /* Adjust based on your container */
+  line-height: 1.2;
+  margin: 1rem 0;
+  text-shadow: 0 0 8px rgba(235, 94, 40, 0.3); /* Optional glow */
+}
+
+/* Terminal Typing Animation */
+.terminal {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin: 1.5rem 0;
+  min-height: 1.5em;
+}
+
+.prompt {
+  color: var(--accent);
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glowing CTA Button */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: var(--accent);
+  border: 2px dashed var(--accent);
+  font-family: 'Courier New', monospace;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.glow-text {
+  position: relative;
+  z-index: 2;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  border-style: solid;
+  box-shadow: 0 0 20px rgba(235, 94, 40, 0.6);
+}
+
+.cta-button:hover .arrow {
+  transform: translateY(5px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .ascii-art { font-size: 0.5rem; }
+  .terminal { font-size: 1rem; }
+}
