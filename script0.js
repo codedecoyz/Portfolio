@@ -94,3 +94,54 @@ function typeWriter() {
 window.addEventListener('load', () => {
   typeWriter();
 });
+
+// Binary Background Generator
+function createBinaryBackground() {
+  // Create container
+  const binaryBg = document.createElement('div');
+  binaryBg.className = 'binary-background';
+  document.body.appendChild(binaryBg);
+
+  // Generate random binary strings
+  function generateBinaryString(length = 30) {
+    let binary = '';
+    for (let i = 0; i < length; i++) {
+      binary += Math.random() > 0.5 ? '1' : '0';
+      // Add spaces occasionally for readability
+      if (i % 8 === 7 && i !== length - 1) {
+        binary += ' ';
+      }
+    }
+    return binary;
+  }
+
+  // Create binary streams
+  for (let i = 0; i < 10; i++) {
+    const stream = document.createElement('div');
+    stream.className = 'binary-stream';
+    
+    // Generate multiple lines of binary code
+    const lines = [];
+    for (let j = 0; j < 8; j++) {
+      lines.push(generateBinaryString(Math.floor(Math.random() * 20) + 15));
+    }
+    
+    stream.innerHTML = lines.join('<br>');
+    binaryBg.appendChild(stream);
+  }
+
+  // Refresh binary content periodically for variety
+  setInterval(() => {
+    const streams = document.querySelectorAll('.binary-stream');
+    streams.forEach(stream => {
+      const lines = [];
+      for (let j = 0; j < 8; j++) {
+        lines.push(generateBinaryString(Math.floor(Math.random() * 20) + 15));
+      }
+      stream.innerHTML = lines.join('<br>');
+    });
+  }, 8000); // Change every 8 seconds
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', createBinaryBackground);
