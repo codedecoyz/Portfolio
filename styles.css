@@ -211,12 +211,22 @@
 /* ======================
    ENHANCED PROJECT CARDS
    ====================== */
-
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); /* Fixed max width */
+  gap: 6rem;
+  margin: 3rem auto;
+  justify-content: center; /* Center the cards */
+  max-width: 1200px;
+}
+
+/* Responsive breakpoints - simplified */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    max-width: 350px;
+    gap: 1.5rem;
+  }
 }
 
 .project-card {
@@ -534,4 +544,72 @@
 @media (max-width: 768px) {
   .ascii-art { font-size: 0.5rem; }
   .terminal { font-size: 1rem; }
+}
+
+/*floating binaries */
+/* Floating Binary Background */
+.binary-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.binary-stream {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: rgba(235, 94, 40, 0.15); /* Your accent color, very transparent */
+  animation: float-down linear infinite;
+  white-space: nowrap;
+}
+
+/* Different animation speeds and delays for variety */
+.binary-stream:nth-child(1) { left: 5%; animation-duration: 15s; animation-delay: 0s; }
+.binary-stream:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: -2s; }
+.binary-stream:nth-child(3) { left: 25%; animation-duration: 18s; animation-delay: -4s; }
+.binary-stream:nth-child(4) { left: 35%; animation-duration: 14s; animation-delay: -1s; }
+.binary-stream:nth-child(5) { left: 45%; animation-duration: 16s; animation-delay: -3s; }
+.binary-stream:nth-child(6) { left: 55%; animation-duration: 13s; animation-delay: -5s; }
+.binary-stream:nth-child(7) { left: 65%; animation-duration: 17s; animation-delay: -2.5s; }
+.binary-stream:nth-child(8) { left: 75%; animation-duration: 15s; animation-delay: -4.5s; }
+.binary-stream:nth-child(9) { left: 85%; animation-duration: 19s; animation-delay: -1.5s; }
+.binary-stream:nth-child(10) { left: 95%; animation-duration: 14s; animation-delay: -3.5s; }
+
+@keyframes float-down {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Glow effect for some streams */
+.binary-stream:nth-child(odd) {
+  text-shadow: 0 0 5px rgba(235, 94, 40, 0.3);
+}
+
+/* Different opacity levels for depth */
+.binary-stream:nth-child(3n) { opacity: 0.3; }
+.binary-stream:nth-child(3n+1) { opacity: 0.5; }
+.binary-stream:nth-child(3n+2) { opacity: 0.2; }
+
+/* Mobile optimization - fewer streams */
+@media (max-width: 768px) {
+  .binary-stream:nth-child(n+6) {
+    display: none;
+  }
 }
